@@ -1,8 +1,12 @@
 const express = require('express')
-const db = require('./db')
-const Vent = require('./vent')
+const ventRouter = require('./vent/router')
+const bodyParser = require('body-parser')
 
 const app = express()
+
+const jsonParser = bodyParser.json()
+app.use(jsonParser)
+app.use(ventRouter)
 
 const port = process.env.PORT || 5000
 function onListen () {
