@@ -1,5 +1,6 @@
 const express = require('express')
 const db = require('./db')
+const Vent = require('./vent')
 
 const app = express()
 
