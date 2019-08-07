@@ -26,15 +26,9 @@ function updateVent (request, response, next) {
   //   .then(vent => response.send(vent))
   //   .catch(next)
 
+  const { id } = request.params
   Vent
-    .update(
-      request.body,
-      {
-        where: {
-          id: request.params.id
-        }
-      }
-    )
+    .update(request.body, { where: { id } })
     .then(number => response.send({ number }))
     .catch(next)
 }
@@ -47,14 +41,9 @@ function deleteVent (request, response, next) {
   //   .then(vent => response.send(vent))
   //   .catch(next)
 
+  const { id } = request.params
   Vent
-    .destroy(
-      {
-        where: {
-          id: request.params.id
-        }
-      }
-    )
+    .destroy({ where: { id } })
     .then(number => response.send({ number }))
     .catch(next)
 }
